@@ -1,0 +1,7 @@
+build/
+man/*.1
+.lock*
+__pycache__
+android/.server/
+android/.client/
+codeBlocks
