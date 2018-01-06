@@ -1,0 +1,24 @@
+From c69d79452a27a2ed7526069814af0f584b0c83d1 Mon Sep 17 00:00:00 2001
+From: Tobias Schlemmer <keinstein@users.sourceforge.net>
+Date: Sat, 6 Jan 2018 22:24:02 +0100
+Subject: gcc6 ftbfs
+
+---
+ tests/iodelay.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tests/iodelay.cpp b/tests/iodelay.cpp
+index e1ba63f..fa0c24b 100644
+--- a/tests/iodelay.cpp
++++ b/tests/iodelay.cpp
+@@ -167,8 +167,8 @@ static jack_client_t  *jack_handle;
+ static jack_port_t    *jack_capt;
+ static jack_port_t    *jack_play;
+ 
+-jack_latency_range_t   capture_latency = {-1, -1};
+-jack_latency_range_t   playback_latency = {-1, -1};
++jack_latency_range_t   capture_latency = {(jack_nframes_t)-1, (jack_nframes_t)-1};
++jack_latency_range_t   playback_latency = {(jack_nframes_t)-1, (jack_nframes_t)-1};
+ 
+ void
+ latency_cb (jack_latency_callback_mode_t mode, void *arg)

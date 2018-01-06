@@ -1,0 +1,4 @@
+0001-reproducible-build.patch
+0002-gcc6-ftbfs.patch
+0003-packed-structs.patch
+0004-Update-.gitignore-from-Debian-packaging-branch.patch

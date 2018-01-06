@@ -1,0 +1,30 @@
+From 9261c119b5f0629d77ddb1d1a335834a7afd97b2 Mon Sep 17 00:00:00 2001
+From: Tobias Schlemmer <keinstein@users.sourceforge.net>
+Date: Sat, 6 Jan 2018 22:27:51 +0100
+Subject: packed structs
+
+Description: Update arch list where packed structures are bad
+ Disables the use of packed structures on architectures where misaligned access
+ is bad.
+Origin: upstream,
+ https://github.com/jackaudio/jack2/commit/460063d8dc2cb465e22fd538239817a0cb0baec6
+ https://github.com/jackaudio/jack2/commit/693451c36106542c5c5b5ba46d5d89aec783252e
+ https://github.com/jackaudio/jack2/commit/39e984c38cc1313d648dbde2cc46c1c1f6a01eca
+Bug-Debian: https://bugs.debian.org/728710
+---
+ common/jack/systemdeps.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/common/jack/systemdeps.h b/common/jack/systemdeps.h
+index ce0c2f7..43c8a55 100644
+--- a/common/jack/systemdeps.h
++++ b/common/jack/systemdeps.h
+@@ -120,7 +120,7 @@ Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ 
+ #endif /* __APPLE__ || __linux__ || __sun__ || sun */
+ 
+-#if defined(__arm__)
++#if defined(__arm__) || defined(__aarch64__) || defined(__mips__) || defined(__ppc__) || defined(__powerpc__)
+     #undef POST_PACKED_STRUCTURE
+     #define POST_PACKED_STRUCTURE
+ #endif /* __arm__ */
