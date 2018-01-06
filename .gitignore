@@ -1,3 +1,4 @@
+/.pc
 build/
 man/*.1
 .lock*
